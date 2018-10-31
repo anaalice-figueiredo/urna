@@ -4,17 +4,42 @@ public class GerenciadorTSE {
 
 	private Urna urnas[] = new Urna[10];
 	private Eleitor eleitores[] = new Eleitor[10];
+	private TituloEleitor titulos[] = new TituloEleitor[10];
 	private Candidato candidato1;
 	private Candidato candidato2;
 	private int qtdUrnas = 0;
+	private int qtdTitulos = 0;
 	private int qtdEleitores = 0;
 
-//	public GerenciadorTSE(Urna[] urnas, Eleitor[] eleitores, Candidato candidato1, Candidato candidato2) {
-//		this.urnas = urnas;
-//		this.eleitores = eleitores;
-//		this.candidato1 = candidato1;
-//		this.candidato2 = candidato2;
-//	}
+	public GerenciadorTSE() {
+		String nome;
+		TituloEleitor titulo;
+		
+		titulo = new TituloEleitor("1", "São Miguel", "4");
+		nome = "Felipe Gabriel";
+		Eleitor eleitor = new Eleitor(nome, titulo);
+		cadastroEleitor(eleitor);
+		
+		titulo = new TituloEleitor("2", "São Miguel", "4");
+		nome = "Ana Alice";
+		eleitor = new Eleitor(nome, titulo);
+		cadastroEleitor(eleitor);
+		
+		titulo = new TituloEleitor("2", "São Miguel", "4");
+		nome = "Fernando Haddad";
+		eleitor = new Eleitor(nome, titulo);
+		candidato1 = new Candidato(nome, titulo, "PT", "13", "Presidente");
+		cadastroEleitor(eleitor);
+		
+		titulo = new TituloEleitor("2", "São Miguel", "4");
+		nome = "Bolsonaro";
+		eleitor = new Eleitor(nome, titulo);
+		candidato2 = new Candidato(nome, titulo, "PT", "13", "Presidente");
+		cadastroEleitor(eleitor);
+
+		Urna urna = new Urna(candidato1, candidato2, "4");
+		
+	}
 
 	public boolean votar(String numTitulo, String numCandidato) {
 		boolean verifica = verificarTituloEleitor(numTitulo);
@@ -91,21 +116,4 @@ public class GerenciadorTSE {
 	public Eleitor[] getEletores() {
 		return eleitores;
 	}
-
-	public Candidato getCandidato1() {
-		return candidato1;
-	}
-
-	public void setCandidato1(Candidato candidato1) {
-		this.candidato1 = candidato1;
-	}
-
-	public Candidato getCandidato2() {
-		return candidato2;
-	}
-
-	public void setCandidato2(Candidato candidato2) {
-		this.candidato2 = candidato2;
-	}
-	
 }
