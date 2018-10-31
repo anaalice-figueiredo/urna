@@ -31,7 +31,7 @@ public class Urna {
 			qtdVotosCandidato2++;
 		}else if(numeroCandidato.equals("branco")) {
 			qtdVotosBrancos++;
-		}else {
+		}else if(numeroCandidato.equals("18")){
 			qtdVotosNulos++;
 		}
 	}
