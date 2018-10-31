@@ -19,23 +19,27 @@ public class GerenciadorTSE {
 		nome = "Felipe Gabriel";
 		Eleitor eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
+		qtdEleitores++;
 		
 		titulo = new TituloEleitor("234", "São Miguel", "4");
 		nome = "Ana Alice";
 		eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
+		qtdEleitores++;
 		
 		titulo = new TituloEleitor("256", "São Miguel", "4");
 		nome = "Fernando Haddad";
 		eleitor = new Eleitor(nome, titulo);
 		candidato1 = new Candidato(nome, titulo, "PT", "13", "Presidente");
 		cadastroEleitor(eleitor);
+		qtdEleitores++;
 		
 		titulo = new TituloEleitor("278", "São Miguel", "4");
 		nome = "Bolsonaro";
 		eleitor = new Eleitor(nome, titulo);
 		candidato2 = new Candidato(nome, titulo, "PSL", "17", "Presidente");
 		cadastroEleitor(eleitor);
+		qtdEleitores++;
 
 		Urna urna = new Urna(candidato1, candidato2, "4");
 		
