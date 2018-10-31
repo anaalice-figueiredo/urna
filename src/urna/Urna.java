@@ -72,52 +72,36 @@ public class Urna {
 		System.out.println("_______________________________________________________");
 	}
 
-	public Candidato getCandidato1() {
-		return candidato1;
-	}
-
-	public void setCandidato1(Candidato candidato1) {
-		this.candidato1 = candidato1;
-	}
-
-	public Candidato getCandidato2() {
-		return candidato2;
-	}
-
-	public void setCandidato2(Candidato candidato2) {
-		this.candidato2 = candidato2;
-	}
-
 	public int getQtdVotosNulos() {
 		return qtdVotosNulos;
 	}
 
-	public void setQtdVotosNulos(int qtdVotosNulos) {
-		this.qtdVotosNulos = qtdVotosNulos;
+	public void setQtdVotosNulos() {
+		qtdVotosNulos++;
 	}
 
 	public int getQtdVotosBrancos() {
 		return qtdVotosBrancos;
 	}
 
-	public void setQtdVotosBrancos(int qtdVotosBrancos) {
-		this.qtdVotosBrancos = qtdVotosBrancos;
+	public void setQtdVotosBrancos() {
+		qtdVotosBrancos++;
 	}
 
 	public int getQtdVotosCandidato1() {
 		return qtdVotosCandidato1;
 	}
 
-	public void setQtdVotosCandidato1(int qtdVotosCandidato1) {
-		this.qtdVotosCandidato1 = qtdVotosCandidato1;
+	public void setQtdVotosCandidato1() {
+		qtdVotosCandidato1++;
 	}
 
 	public int getQtdVotosCandidato2() {
 		return qtdVotosCandidato2;
 	}
 
-	public void setQtdVotosCandidato2(int qtdVotosCandidato2) {
-		this.qtdVotosCandidato2 = qtdVotosCandidato2;
+	public void setQtdVotosCandidato2() {
+		qtdVotosCandidato2++;
 	}
 	
 //	public String toString() {

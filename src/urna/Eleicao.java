@@ -41,9 +41,12 @@ public class Eleicao {
 							if(opc == 1) {
 								System.out.println("Digite o numero do candidato: ");
 								String voto = leitor.next();
-								if(voto == "13" ^ voto == "17") {									
+								if(voto.equals("13")) {									
 									gerenciador.votar(tituloEleitor, voto);
+								}else if(voto.equals("17")){
+									
 								}else {
+								}
 									System.out.println("Votou nulo");
 								}
 							}else if(opc == 2) {
