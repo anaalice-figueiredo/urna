@@ -72,7 +72,7 @@ public class GerenciadorTSE {
 			}
 			return true;
 		} else {
-			System.out.println("Eleitor com titulo inválido ou eleitor ja votou");
+			System.out.println("Titulo Inválido");
 			return false;
 		}
 
