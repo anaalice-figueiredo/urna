@@ -9,7 +9,8 @@ public class Eleicao {
 		
 		Scanner leitor = new Scanner(System.in);
 		GerenciadorTSE gerenciador = new GerenciadorTSE();
-
+		
+		
 		boolean votAberta = true;
 		
 		while (opc != 3) {
