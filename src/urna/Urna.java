@@ -37,6 +37,7 @@ public class Urna {
 	}
 	
 	public void emitirBoletimUrna() {
+		System.out.println("_____________________Início Urna_______________________");
 		System.out.println("_______________________________________________________");
 		System.out.println("Votos em Fernando Haddad : " + qtdVotosCandidato1 + "\n");
 		System.out.println("_______________________________________________________");
@@ -46,32 +47,10 @@ public class Urna {
 		System.out.println("_______________________________________________________");
 		System.out.println("Votos em Nulos : " + qtdVotosNulos + "\n");
 		System.out.println("_______________________________________________________");
+		System.out.println("_____________________Fim Urna__________________________");
+		System.out.println(" ");
 	}
 	
-	public void contabilizarVotosBranco() {
-		System.out.println("_______________________________________________________");
-		System.out.println("Votos em Branco : " + qtdVotosBrancos + "\n");
-		System.out.println("_______________________________________________________");
-	}
-	
-	public void contabilizarVotosNulos() {
-		System.out.println("_______________________________________________________");
-		System.out.println("Votos em Nulos : " + qtdVotosNulos + "\n");
-		System.out.println("_______________________________________________________");
-	}
-	
-	public void contabilizarVotosCandidato1() {
-		System.out.println("_______________________________________________________");
-		System.out.println("Votos em Fernando Haddad : " + qtdVotosCandidato1 + "\n");
-		System.out.println("_______________________________________________________");
-	}
-	
-	public void contabilizarVotosCandidato2() {
-		System.out.println("_______________________________________________________");
-		System.out.println("Votos em Bolsonaro : " + qtdVotosCandidato2 + "\n");
-		System.out.println("_______________________________________________________");
-	}
-
 	public int getQtdVotosNulos() {
 		return qtdVotosNulos;
 	}
@@ -103,9 +82,5 @@ public class Urna {
 	public void setQtdVotosCandidato2() {
 		qtdVotosCandidato2++;
 	}
-	
-//	public String toString() {
-//		não encontrei necessidade desse metodo, então nao usei
-//	}
 
 }

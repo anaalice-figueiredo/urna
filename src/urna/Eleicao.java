@@ -13,12 +13,15 @@ public class Eleicao {
 		
 		boolean votAberta = true;
 		
-		while (opc != 3) {
+		while (opc != 6) {
 			System.out.println("--------------------------------------");
 			System.out.println("MENU 1 DO MESARIO");
 			System.out.println("--------------------------------------");
 			System.out.println("1- Novo Voto");
 			System.out.println("2- Contabilizar Votação");
+			System.out.println("3- Cadastrar Titulo de Eleitor");
+			System.out.println("4- Cadastrar Eleitor");
+			System.out.println("5- Cadastrar Urna");
 			opc = leitor.nextInt();
 
 			switch (opc) {
@@ -44,12 +47,11 @@ public class Eleicao {
 								String voto = leitor.next();
 								if(voto.equals("13") ^ voto.equals("17")) {									
 									gerenciador.votar(tituloEleitor, voto);
-									gerenciador.exibirBoletimUrnas();
 								}else {
 									
 								}
 							}else if(opc == 2) {
-								
+								gerenciador.votar(tituloEleitor, "branco");
 							}
 						}else {
 							System.out.println("Titulo inválido!");
@@ -57,7 +59,26 @@ public class Eleicao {
 					}
 				break;
 				case 2:
-					System.out.println("Total votação: ");
+					System.out.println("1- Ver Boletin das Urnas: ");
+					System.out.println("2- Ver Resultado Geral: ");
+					opc = leitor.nextInt();
+					if(opc == 1) {
+						gerenciador.exibirBoletimUrnas();
+					} else if (opc == 2) {
+						gerenciador.apurarResultadoFinal();
+					}
+				break;
+				case 3:
+					System.out.println("________CADASTRO ELEITOR_________");
+					//verificar se ja nao existe
+					System.out.println("Digite um numero do titulo de Eleitor: ");
+					String numTitulo = leitor.next();
+					//listagem de urna se der tempo
+					System.out.println("Digite um numero da Urna: ");
+					String numUrna = leitor.next();
+					
+					System.out.println("Digite a cidade: ");
+					String cidade = leitor.next();
 				break;
 			}
 		}

@@ -1,5 +1,7 @@
 package urna;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 public class GerenciadorTSE {
 
 	private Urna urnas[] = new Urna[10];
@@ -10,8 +12,16 @@ public class GerenciadorTSE {
 	private int qtdUrnas = 0;
 	private int qtdTitulos = 0;
 	private int qtdEleitores = 0;
+	int totalBrancos = 0;
+	int totalNulos = 0;
+	int totalCandidatos1 = 0;
+	int totalCandidatos2 = 0;
 
 	public GerenciadorTSE() {
+		inicializaDados();
+	}
+
+	public void inicializaDados() {
 		String nome;
 		TituloEleitor titulo;
 
@@ -25,13 +35,13 @@ public class GerenciadorTSE {
 		eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 
-		titulo = new TituloEleitor("256", "4", "São Miguel");
+		titulo = new TituloEleitor("256", "5", "São Miguel");
 		nome = "Fernando Haddad";
 		eleitor = new Eleitor(nome, titulo);
 		candidato1 = new Candidato(nome, titulo, "PT", "13", "Presidente");
 		cadastroEleitor(eleitor);
 
-		titulo = new TituloEleitor("278", "4", "São Miguel");
+		titulo = new TituloEleitor("278", "5", "São Miguel");
 		nome = "Bolsonaro";
 		eleitor = new Eleitor(nome, titulo);
 		candidato2 = new Candidato(nome, titulo, "PSL", "17", "Presidente");
@@ -40,6 +50,8 @@ public class GerenciadorTSE {
 		Urna urna = new Urna(candidato1, candidato2, "4");
 		cadastroUrnas(urna);
 
+		urna = new Urna(candidato1, candidato2, "5");
+		cadastroUrnas(urna);
 	}
 
 	public boolean votar(String numTitulo, String numCandidato) {
@@ -59,7 +71,7 @@ public class GerenciadorTSE {
 			}
 			return true;
 		} else {
-			System.out.println("Amigo, você não pode votar, ta ok?");
+			System.out.println("Titulo inválido");
 			return false;
 		}
 
@@ -105,8 +117,6 @@ public class GerenciadorTSE {
 		for (int i = 0; i < qtdEleitores; i++) {
 			if (numeroTitulo.equals(eleitores[i].getTituloEleitor().getNumeroTitulo())) {
 				return true;
-			} else {
-				return false;
 			}
 		}
 		return false;
@@ -121,7 +131,31 @@ public class GerenciadorTSE {
 	}
 
 	public void apurarResultadoFinal() {
+//		for(todas as urnas){ totalvotosBrancos+=urnas[i].votosBrancos; fazer pra todos}
 
+		for (int i = 0; i < qtdUrnas; i++) {
+			totalBrancos += urnas[i].getQtdVotosBrancos();
+			totalNulos += urnas[i].getQtdVotosNulos();
+			totalCandidatos1 += urnas[i].getQtdVotosCandidato1();
+			totalCandidatos2 += urnas[i].getQtdVotosCandidato2();
+		}
+
+		int totalVotacao = totalBrancos + totalNulos + totalCandidatos1 + totalCandidatos2;
+
+		float totalBranco = (totalBrancos / totalVotacao) * 100;
+		float totalNulo = (totalNulos / totalVotacao) * 100;
+		float totalCandidato1 = (totalCandidatos1 / totalVotacao) * 100;
+		float totalCandidato2 = (totalCandidatos2 / totalVotacao) * 100;
+		System.out.println("_____________APURAÇÃO____________");
+		System.out.println("_________________________________");
+		System.out.println("Votos brancos: " + totalBranco + "% \n");
+		System.out.println("_________________________________");
+		System.out.println("Votos nulos: " + totalNulo + "% \n");
+		System.out.println("_________________________________");
+		System.out.println("Votos no candidato 1 (Haddad): " + totalCandidato1 + "% \n");
+		System.out.println("_________________________________");
+		System.out.println("Votos no candidato 2 (Bolsonaro): " + totalCandidato2 + "% \n");
+		System.out.println("_________________________________");
 	}
 
 }
