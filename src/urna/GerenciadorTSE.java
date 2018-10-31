@@ -38,8 +38,7 @@ public class GerenciadorTSE {
 		cadastroEleitor(eleitor);
 
 		Urna urna = new Urna(candidato1, candidato2, "4");
-			 urna = new Urna(candidato1, candidato2, "1");
-			 urna = new Urna(candidato1, candidato2, "2");
+		cadastroUrnas(urna);
 
 	}
 
@@ -98,7 +97,7 @@ public class GerenciadorTSE {
 
 	public void exibirBoletimUrnas() {
 		for (int i = 0; i < qtdUrnas; i++) {
-			System.out.println("oi");
+			urnas[i].emitirBoletimUrna();
 		}
 	}
 
