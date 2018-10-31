@@ -15,26 +15,26 @@ public class GerenciadorTSE {
 		String nome;
 		TituloEleitor titulo;
 		
-		titulo = new TituloEleitor("123", "São Miguel", "4");
+		titulo = new TituloEleitor("123", "4", "São Miguel");
 		nome = "Felipe Gabriel";
 		Eleitor eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 		qtdEleitores++;
 		
-		titulo = new TituloEleitor("234", "São Miguel", "4");
+		titulo = new TituloEleitor("234", "4", "São Miguel");
 		nome = "Ana Alice";
 		eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 		qtdEleitores++;
 		
-		titulo = new TituloEleitor("256", "São Miguel", "4");
+		titulo = new TituloEleitor("256", "4", "São Miguel");
 		nome = "Fernando Haddad";
 		eleitor = new Eleitor(nome, titulo);
 		candidato1 = new Candidato(nome, titulo, "PT", "13", "Presidente");
 		cadastroEleitor(eleitor);
 		qtdEleitores++;
 		
-		titulo = new TituloEleitor("278", "São Miguel", "4");
+		titulo = new TituloEleitor("278", "4", "São Miguel");
 		nome = "Bolsonaro";
 		eleitor = new Eleitor(nome, titulo);
 		candidato2 = new Candidato(nome, titulo, "PSL", "17", "Presidente");
@@ -42,23 +42,27 @@ public class GerenciadorTSE {
 		qtdEleitores++;
 
 		Urna urna = new Urna(candidato1, candidato2, "4");
+		qtdUrnas++;
 		
 	}
 
 	public boolean votar(String numTitulo, String numCandidato) {
 		boolean verifica = verificarTituloEleitor(numTitulo);
-
+		//System.out.println(verifica);
 		if (verifica) {
 			for (int i = 0; i < qtdEleitores; i++) {
-				if (eleitores[i].getTituloEleitor().getNumeroTitulo() == numTitulo) {
+				System.out.println(qtdEleitores);
+				if (eleitores[i].getTituloEleitor().getNumeroTitulo().equals(numTitulo)) {
+					System.out.println("Entrou aqq");
 					String numeroUrna = eleitores[i].getTituloEleitor().getNumeroUrna();
-
+					System.out.println("numero urna deve vir dps disso");
 					for (int j = 0; j < qtdUrnas; j++) {
 						if (urnas[j].getNumeroUrna().equals(numeroUrna)) {
 							urnas[j].votar(numCandidato);
+							break;
 						}
 					}
-
+					
 				}
 			}
 			return true;
@@ -100,7 +104,7 @@ public class GerenciadorTSE {
 	}
 
 	public void exibirBoletimUrnas() {
-		for (int i = 0; i < qtdEleitores; i++) {
+		for (int i = 0; i < qtdUrnas; i++) {
 			urnas[i].emitirBoletimUrna();
 		}
 	}
@@ -109,6 +113,8 @@ public class GerenciadorTSE {
 		for (int i = 0; i < qtdEleitores; i++) {
 			if (numeroTitulo.equals(eleitores[i].getTituloEleitor().getNumeroTitulo())) {
 				return true;
+			} else {
+				return false;
 			}
 		}
 		return false;
