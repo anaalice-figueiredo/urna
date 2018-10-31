@@ -25,12 +25,12 @@ public class GerenciadorTSE {
 		String nome;
 		TituloEleitor titulo;
 
-		titulo = new TituloEleitor("123", "4", "São Miguel");
+		titulo = new TituloEleitor("123", "9", "São Miguel");
 		nome = "Felipe Gabriel";
 		Eleitor eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 
-		titulo = new TituloEleitor("234", "4", "São Miguel");
+		titulo = new TituloEleitor("234", "5", "São Miguel");
 		nome = "Ana Alice";
 		eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
@@ -63,6 +63,7 @@ public class GerenciadorTSE {
 					for (int j = 0; j < qtdUrnas; j++) {
 						if (urnas[j].getNumeroUrna().equals(numeroUrna)) {
 							urnas[j].votar(numCandidato);
+							//eleitores[i].setVotou(true);
 							break;
 						}
 					}
@@ -71,7 +72,7 @@ public class GerenciadorTSE {
 			}
 			return true;
 		} else {
-			System.out.println("Titulo inválido");
+			System.out.println("Eleitor com titulo inválido ou eleitor ja votou");
 			return false;
 		}
 
@@ -121,6 +122,15 @@ public class GerenciadorTSE {
 		}
 		return false;
 	}
+	
+	public boolean votou(String numeroTitulo) {
+		for (int i = 0; i < qtdEleitores; i++) {
+			if (numeroTitulo.equals(eleitores[i].isVotou())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public Urna[] getUrnas() {
 		return urnas;
@@ -146,6 +156,7 @@ public class GerenciadorTSE {
 		float totalNulo = (totalNulos / totalVotacao) * 100;
 		float totalCandidato1 = (totalCandidatos1 / totalVotacao) * 100;
 		float totalCandidato2 = (totalCandidatos2 / totalVotacao) * 100;
+		
 		System.out.println("_____________APURAÇÃO____________");
 		System.out.println("_________________________________");
 		System.out.println("Votos brancos: " + totalBranco + "% \n");
@@ -157,5 +168,12 @@ public class GerenciadorTSE {
 		System.out.println("Votos no candidato 2 (Bolsonaro): " + totalCandidato2 + "% \n");
 		System.out.println("_________________________________");
 	}
+	
+	public void cadastroUrnaMain(String numUrna) {
+		Urna urna = new Urna(candidato1, candidato2, numUrna);
+		cadastroUrnas(urna);
+	}
+	
+	
 
 }

@@ -3,7 +3,17 @@ package urna;
 public class Eleitor {
 
 	private String nome;
+	private boolean votou = false;
 	private TituloEleitor tituloEleitor;
+	
+	public boolean isVotou() {
+		return votou;
+	}
+
+	public void setVotou(boolean votou) {
+		this.votou = votou;
+	}
+
 
 	public Eleitor(String nome, TituloEleitor tituloEleitor) {
 		this.nome = nome;

@@ -13,15 +13,14 @@ public class Eleicao {
 		
 		boolean votAberta = true;
 		
-		while (opc != 6) {
+		while (opc != 5) {
 			System.out.println("--------------------------------------");
 			System.out.println("MENU 1 DO MESARIO");
 			System.out.println("--------------------------------------");
 			System.out.println("1- Novo Voto");
 			System.out.println("2- Contabilizar Votação");
-			System.out.println("3- Cadastrar Titulo de Eleitor");
-			System.out.println("4- Cadastrar Eleitor");
-			System.out.println("5- Cadastrar Urna");
+			System.out.println("3- Cadastrar Titulo de Eleitor e Eleitor");
+			System.out.println("4- Cadastrar Urna");
 			opc = leitor.nextInt();
 
 			switch (opc) {
@@ -69,16 +68,36 @@ public class Eleicao {
 					}
 				break;
 				case 3:
-					System.out.println("________CADASTRO ELEITOR_________");
+					System.out.println("________CADASTRO TITULO_________");
+					System.out.println("Digite o nome do eleitor: ");
+					String nome = leitor.nextLine();
+					String teste = leitor.nextLine();
+					
 					//verificar se ja nao existe
 					System.out.println("Digite um numero do titulo de Eleitor: ");
-					String numTitulo = leitor.next();
+					String numTitulo = leitor.nextLine();
+					
+					
 					//listagem de urna se der tempo
 					System.out.println("Digite um numero da Urna: ");
-					String numUrna = leitor.next();
+					String numUrna = leitor.nextLine();
+					
 					
 					System.out.println("Digite a cidade: ");
-					String cidade = leitor.next();
+					String cidade = leitor.nextLine();
+					
+					
+					TituloEleitor titulo = new TituloEleitor(numTitulo, numUrna, cidade);
+					Eleitor eleitor = new Eleitor(nome, titulo);
+					gerenciador.cadastroEleitor(eleitor);
+					
+				break;
+				case 4:
+					System.out.println("________CADASTRO URNA_________");
+					System.out.println("Digite o numero da Urna: ");
+					String numeroUrna = leitor.next();
+					
+					gerenciador.cadastroUrnaMain(numeroUrna);
 				break;
 			}
 		}

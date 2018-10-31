@@ -27,7 +27,7 @@ public class Urna {
 	public void votar(String numeroCandidato) {
 		if(numeroCandidato.equals("13")) {
 			qtdVotosCandidato1++;
-		} else if(numeroCandidato.equals("17")) {
+		}else if(numeroCandidato.equals("17")) {
 			qtdVotosCandidato2++;
 		}else if(numeroCandidato.equals("branco")) {
 			qtdVotosBrancos++;
