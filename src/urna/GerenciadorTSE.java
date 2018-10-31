@@ -34,7 +34,7 @@ public class GerenciadorTSE {
 		titulo = new TituloEleitor("2", "São Miguel", "4");
 		nome = "Bolsonaro";
 		eleitor = new Eleitor(nome, titulo);
-		candidato2 = new Candidato(nome, titulo, "PT", "13", "Presidente");
+		candidato2 = new Candidato(nome, titulo, "PSL", "17", "Presidente");
 		cadastroEleitor(eleitor);
 
 		Urna urna = new Urna(candidato1, candidato2, "4");
