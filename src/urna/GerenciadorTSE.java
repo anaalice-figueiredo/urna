@@ -15,23 +15,23 @@ public class GerenciadorTSE {
 		String nome;
 		TituloEleitor titulo;
 		
-		titulo = new TituloEleitor("1", "São Miguel", "4");
+		titulo = new TituloEleitor("123", "São Miguel", "4");
 		nome = "Felipe Gabriel";
 		Eleitor eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 		
-		titulo = new TituloEleitor("2", "São Miguel", "4");
+		titulo = new TituloEleitor("234", "São Miguel", "4");
 		nome = "Ana Alice";
 		eleitor = new Eleitor(nome, titulo);
 		cadastroEleitor(eleitor);
 		
-		titulo = new TituloEleitor("2", "São Miguel", "4");
+		titulo = new TituloEleitor("256", "São Miguel", "4");
 		nome = "Fernando Haddad";
 		eleitor = new Eleitor(nome, titulo);
 		candidato1 = new Candidato(nome, titulo, "PT", "13", "Presidente");
 		cadastroEleitor(eleitor);
 		
-		titulo = new TituloEleitor("2", "São Miguel", "4");
+		titulo = new TituloEleitor("278", "São Miguel", "4");
 		nome = "Bolsonaro";
 		eleitor = new Eleitor(nome, titulo);
 		candidato2 = new Candidato(nome, titulo, "PSL", "17", "Presidente");
@@ -57,11 +57,12 @@ public class GerenciadorTSE {
 
 				}
 			}
+			return true;
 		} else {
-			
+			System.out.println("Amigo, você não pode votar, ta ok?");
+			return false;
 		}
 
-		return false;
 	}
 
 	public int getQtdUrnas() {
@@ -115,6 +116,10 @@ public class GerenciadorTSE {
 
 	public Eleitor[] getEletores() {
 		return eleitores;
+	}
+	
+	public void apurarResultadoFinal(){
+		
 	}
 	
 }
